@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kocks Farm | Fresh from our fields</title>
+  <style>
+    :root{--green:#285943;--dark:#173b2c;--cream:#fffaf0;--gold:#d99a35;--muted:#69756c}
+    *{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:var(--dark);background:var(--cream);line-height:1.5}
+    header{background:var(--green);color:#fff;padding:18px 6%;display:flex;align-items:center;justify-content:space-between;gap:20px;position:sticky;top:0;z-index:5}
+    .logo{font-size:1.55rem;font-weight:800;letter-spacing:.5px}.logo span{color:#f4c867}
+    nav{display:flex;gap:24px}nav a{color:#fff;text-decoration:none;font-weight:600}nav a:hover{color:#f4c867}.cart{border:1px solid #fff;border-radius:20px;padding:8px 15px;cursor:pointer;background:transparent;color:#fff}
+    .hero{padding:90px 6%;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:50px;background:linear-gradient(110deg,#f5ead1 55%,#dbe9d9 55%)}
+    h1{font-size:clamp(2.5rem,6vw,5rem);line-height:1.04;margin:15px 0}.eyebrow{color:var(--gold);font-weight:800;text-transform:uppercase;letter-spacing:2px}.hero p{color:var(--muted);font-size:1.1rem;max-width:520px}.button{display:inline-block;background:var(--green);color:#fff;text-decoration:none;padding:13px 22px;border-radius:6px;font-weight:bold;margin-top:12px}.button:hover{background:var(--dark)}
+    .farm-art{min-height:300px;border-radius:50% 50% 8px 8px;background:linear-gradient(#b8d8ea 0 42%,#80a85d 42% 62%,#5b853e 62%);position:relative;overflow:hidden;box-shadow:12px 16px 0 #d6e4ca}.farm-art:before{content:'☀';position:absolute;right:18%;top:8%;font-size:4rem;color:#f5c758}.farm-art:after{content:'🌾  🌾  🌾';position:absolute;bottom:25px;left:14%;font-size:4rem;letter-spacing:12px}
+    section{padding:65px 6%}.section-head{text-align:center;margin-bottom:35px}.section-head h2{font-size:2.2rem;margin:8px}.section-head p{color:var(--muted)}.products{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 5px 18px #173b2c12}.product-image{height:170px;display:grid;place-items:center;font-size:5rem;background:#e9f1df}.card:nth-child(2) .product-image{background:#f8e8d4}.card:nth-child(3) .product-image{background:#e4eff3}.card:nth-child(4) .product-image{background:#f6e4e5}.card-body{padding:18px}.card h3{margin:0 0 4px}.price{font-weight:bold;color:var(--green);font-size:1.1rem}.card button{width:100%;margin-top:13px;border:0;border-radius:5px;background:var(--gold);color:#fff;padding:11px;font-weight:bold;cursor:pointer}.card button:hover{background:#b77a1e}
+    .story{background:var(--green);color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}.story h2{font-size:2.3rem}.story p{color:#d8e6d8}.values{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.value{background:#ffffff12;padding:20px;border-radius:8px}.value b{display:block;color:#f4c867;margin-bottom:6px}
+    .newsletter{text-align:center}.newsletter form{display:flex;max-width:500px;margin:20px auto}.newsletter input{flex:1;padding:14px;border:1px solid #ccd5c6;border-radius:5px 0 0 5px}.newsletter button{border:0;background:var(--green);color:#fff;padding:0 20px;border-radius:0 5px 5px 0;font-weight:bold}
+    footer{background:#102d22;color:#d9e6d9;padding:28px 6%;display:flex;justify-content:space-between;gap:15px}footer small{color:#aabcae}
+    @media(max-width:800px){nav{display:none}.hero,.story{grid-template-columns:1fr}.products{grid-template-columns:repeat(2,1fr)}.farm-art{min-height:220px}.values{grid-template-columns:1fr}footer{flex-direction:column}}@media(max-width:480px){.products{grid-template-columns:1fr}.newsletter form{display:block}.newsletter input,.newsletter button{width:100%;height:45px;border-radius:5px;margin:3px 0}}
+  </style>
+</head>
+<body>
+  <header><div class="logo">Kocks <span>Farm</span></div><nav><a href="#shop">Shop</a><a href="#story">Our Story</a><a href="#contact">Contact</a></nav><button class="cart" onclick="showCart()">Cart (<span id="count">0</span>)</button></header>
+  <main>
+    <section class="hero"><div><div class="eyebrow">Grown with care</div><h1>Good food starts at the farm.</h1><p>Fresh, honest produce and pantry favorites, grown and packed by the Kocks family for your family.</p><a class="button" href="#shop">Shop the harvest →</a></div><div class="farm-art" aria-label="Illustration of a farm"></div></section>
+    <section id="shop"><div class="section-head"><div class="eyebrow">This week's harvest</div><h2>Farm-fresh favorites</h2><p>Picked with care and delivered with a little sunshine.</p></div><div class="products">
+      <article class="card"><div class="product-image">🥕</div><div class="card-body"><h3>Garden Carrots</h3><p>Sweet, crisp and freshly picked.</p><span class="price">$4.50 / bunch</span><button onclick="addToCart('Garden Carrots')">Add to cart</button></div></article>
+      <article class="card"><div class="product-image">🍯</div><div class="card-body"><h3>Wildflower Honey</h3><p>Golden honey from our hives.</p><span class="price">$12.00 / jar</span><button onclick="addToCart('Wildflower Honey')">Add to cart</button></div></article>
+      <article class="card"><div class="product-image">🥚</div><div class="card-body"><h3>Farm Eggs</h3><p>Free-range eggs, a dozen.</p><span class="price">$6.00 / dozen</span><button onclick="addToCart('Farm Eggs')">Add to cart</button></div></article>
+      <article class="card"><div class="product-image">🍓</div><div class="card-body"><h3>Strawberry Jam</h3><p>Small-batch, slow-cooked goodness.</p><span class="price">$8.50 / jar</span><button onclick="addToCart('Strawberry Jam')">Add to cart</button></div></article>
+    </div></section>
+    <section class="story" id="story"><div><div class="eyebrow">Since 1987</div><h2>A little farm with a big heart.</h2><p>At Kocks Farm, we believe the best food is grown close to home. We care for our soil, our animals and our community in every season.</p><a class="button" href="#contact">Meet the farmers</a></div><div class="values"><div class="value"><b>🌱 Grown responsibly</b>Healthy soil, happy crops.</div><div class="value"><b>🤝 Community first</b>Supporting local families.</div><div class="value"><b>📦 Packed fresh</b>From our farm to your door.</div></div></section>
+    <section class="newsletter" id="contact"><div class="eyebrow">Stay in the loop</div><h2>Fresh news from the farm</h2><p>Seasonal recipes, farm updates and special offers.</p><form onsubmit="subscribe(event)"><input type="email" placeholder="Your email address" required><button>Subscribe</button></form></section>
+  </main>
+  <footer><strong>Kocks Farm</strong><small>© 2024 Kocks Farm · Grown with care, shared with love.</small></footer>
+  <script>let cart=0;function addToCart(name){cart++;document.getElementById('count').textContent=cart;alert(name+' added to your cart!')}function showCart(){alert(cart?`You have ${cart} item${cart>1?'s':''} in your cart.`:'Your cart is empty.')}function subscribe(e){e.preventDefault();alert('Thanks for subscribing to Kocks Farm!');e.target.reset()}</script>
+</body>
+</html>
